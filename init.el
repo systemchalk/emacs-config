@@ -36,6 +36,16 @@
 
 (column-number-mode 1)               ; column position in the mode line
 
+;;;; Persistence -- Keep history, reopen files
+
+(savehist-mode 1)     ; minibuffer history persists over restarts
+(save-place-mode 1)   ; reopen files at the position you left
+(recentf-mode 1)      ; track recently visited files
+
+(setopt global-auto-revert-non-file-buffers t)
+(global-auto-revert-mode 1)
+
 ;;;; Did it all work?
 
 (setq nm/init-loaded t)
+
