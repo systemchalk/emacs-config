@@ -1,0 +1,14 @@
+# Ignore everything by default
+*
+
+# Re-admit repo metadata
+!.gitignore
+!.gitattributes
+!README.md
+
+# Re-admit the config
+!early-init.el
+!init.el
+!lisp/
+!lisp/*.el
+
