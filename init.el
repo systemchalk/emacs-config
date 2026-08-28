@@ -66,6 +66,13 @@
 ;; Markdown will inherit this, so keep the tabs in mind when it matters
 (add-hook 'text-mode-hook #'nm/writing-setup)
 
+;;;; Packages
+
+(require 'use-package)
+
+;; Install anything declared with use-package that isn't present
+(setopt use-package-always-ensure t)
+
 ;;;; Did it all work?
 
 (setq nm/init-loaded t)
