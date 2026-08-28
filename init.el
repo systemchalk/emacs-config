@@ -26,6 +26,16 @@
 	kept-new-versions 6
 	kept-old-versions 2)
 
+;;;; Interface -- Consider these optional
+
+;; C-h t for tutorial and C-h r for the manual, in case you forget
+(setopt inhibit-startup-screen t     ; skip the splash buffer
+	initial-scratch-message nil  ; empty *scratch*, no boilerplate
+	ring-bell-function #'ignore  ; silence the terminal bell
+	use-short-answers t)         ; y/n instead of typing "yes"
+
+(column-number-mode 1)               ; column position in the mode line
+
 ;;;; Did it all work?
 
 (setq nm/init-loaded t)
