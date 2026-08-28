@@ -7,10 +7,10 @@ Requires Emacs 30.2+
 ## Layout
 | Path | Purpose |
 |------|---------|
-| `early-init.el` | Garbage Collection threshold |
+| `early-init.el` | Garbage Collection threshold, remove toolbar, scroll |
 | `init.el` | Everything else |
 | `lisp/` | Currently unused |
-| `custom.el` | Currently unused |
+| `custom.el` | Machine specific untracked customization |
 
 ## Install
 Make sure `~/.emacs.d` doesn't exist.
