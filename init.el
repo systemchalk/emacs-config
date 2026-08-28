@@ -45,7 +45,27 @@
 (setopt global-auto-revert-non-file-buffers t)
 (global-auto-revert-mode 1)
 
+;;;; Editing defaults
+;; Global baseline. Per-mode exceptions live in their own sections
+
+(setq-default indent-tabs-mode nil) ; Most things should use spaces
+
+(setopt require-final-newline t)
+
+;;;; Writing defaults -- Whitespace has meaning
+
+;; Sentences no longer have to end with two spaces (e.g. and Dr. are sentences)
+(setopt sentence-end-double-space nil)
+
+(defun nm/writing-setup ()
+  "Buffer-local settings for prose buffers."
+  (setq indent-tabs-mode t)    ; Tabs mean tabs in prose
+  (visual-line-mode 1)
+  (visual-wrap-prefix-mode 1))
+
+;; Markdown will inherit this, so keep the tabs in mind when it matters
+(add-hook 'text-mode-hook #'nm/writing-setup)
+
 ;;;; Did it all work?
 
 (setq nm/init-loaded t)
-
