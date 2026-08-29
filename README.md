@@ -24,3 +24,9 @@ git clone ~/.config/emacs
 
 **macOS** - Todo
 
+## Future work
+* I would prefer the prose sections (mostly driven by markdown) to use TAB as a proper tab. Currently it has either structural meaning or is overloaded by the mode.
+* Python and Rust environments are deferred
+* Spell check and grammar check
+* Themes
+* Fonts
