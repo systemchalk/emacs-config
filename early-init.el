@@ -6,7 +6,7 @@
 (setq gc-cons-threshold (* 100 1000 1000))
 
 (defun nm/restore-gc-threshold ()
-  "Return 'gc-cons-threshold' to a sane working value after startup."
+  "Return `gc-cons-threshold' to a sane working value after startup."
   (setq gc-cons-threshold (* 8 1000 1000)))
 (add-hook 'emacs-startup-hook #'nm/restore-gc-threshold)
 

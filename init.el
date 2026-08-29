@@ -17,22 +17,22 @@
 ;; Backups can become a file graveyard. Consider running the following:
 ;; find ~/.config/emacs/backups -type f -mtime +90 -delete
 (setopt backup-directory-alist
-	`(("." . ,(expand-file-name "backups/" user-emacs-directory)))
-	auto-save-file-name-transforms
-	`((".*" ,(expand-file-name "auto-saves/" user-emacs-directory) t))
-	backup-by-copying t
-	version-control t
-	delete-old-versions t
-	kept-new-versions 6
-	kept-old-versions 2)
+        `(("." . ,(expand-file-name "backups/" user-emacs-directory)))
+        auto-save-file-name-transforms
+        `((".*" ,(expand-file-name "auto-saves/" user-emacs-directory) t))
+        backup-by-copying t
+        version-control t
+        delete-old-versions t
+        kept-new-versions 6
+        kept-old-versions 2)
 
 ;;;; Interface -- Consider these optional
 
 ;; C-h t for tutorial and C-h r for the manual, in case you forget
 (setopt inhibit-startup-screen t     ; skip the splash buffer
-	initial-scratch-message nil  ; empty *scratch*, no boilerplate
-	ring-bell-function #'ignore  ; silence the terminal bell
-	use-short-answers t)         ; y/n instead of typing "yes"
+        initial-scratch-message nil  ; empty *scratch*, no boilerplate
+        ring-bell-function #'ignore  ; silence the terminal bell
+        use-short-answers t)         ; y/n instead of typing "yes"
 
 (column-number-mode 1)               ; column position in the mode line
 
@@ -59,7 +59,7 @@
 
 ;; Text is distinct from prose. All text is wrapped, only prose gets tabs.
 (defun nm/text-setup ()
-  "Wrapping for all text-dervied buffers."
+  "Wrapping for all text-derived buffers."
   (visual-line-mode 1)
   (visual-wrap-prefix-mode 1))
 
@@ -84,7 +84,7 @@
   (markdown-command "pandoc")                ; used by preview/export only
   (markdown-list-indent-width 4)
   (markdown-fontify-code-blocks-natively t)
-  (markdown-assymetric-header t))            ; ## heading, not ## Heading ##
+  (markdown-asymmetric-header t))            ; ## heading, not ## Heading ##
 
 ;;;; Packages - Writing environment
 

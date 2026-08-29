@@ -17,7 +17,7 @@ Make sure `~/.emacs.d` doesn't exist.
 
 ```bash
 rm -rf ~/.emacs.d
-git clone ~/.config/emacs
+git clone git@github.com:systemchalk/emacs-config.git ~/.config/emacs
 ```
 
 **Windows** - Todo
