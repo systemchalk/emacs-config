@@ -57,14 +57,17 @@
 ;; Sentences no longer have to end with two spaces (e.g. and Dr. are sentences)
 (setopt sentence-end-double-space nil)
 
-(defun nm/writing-setup ()
-  "Buffer-local settings for prose buffers."
-  (setq indent-tabs-mode t)    ; Tabs mean tabs in prose
+;; Text is distinct from prose. All text is wrapped, only prose gets tabs.
+(defun nm/text-setup ()
+  "Wrapping for all text-dervied buffers."
   (visual-line-mode 1)
   (visual-wrap-prefix-mode 1))
 
-;; Markdown will inherit this, so keep the tabs in mind when it matters
-(add-hook 'text-mode-hook #'nm/writing-setup)
+;; There used to be a function nm/prose-setup here to make tabs mean tabs
+;; Alas, tabs are overloaded in most markdown formats, so I must adapt my
+;; methods to the whims of people who hate real writers. Revisit sometime.
+
+(add-hook 'text-mode-hook #'nm/text-setup)
 
 ;;;; Packages
 
@@ -72,6 +75,22 @@
 
 ;; Install anything declared with use-package that isn't present
 (setopt use-package-always-ensure t)
+
+;;;; Packages - Markdown
+
+(use-package markdown-mode
+  :mode ("\\.md\\'" . markdown-mode)
+  :custom
+  (markdown-command "pandoc")                ; used by preview/export only
+  (markdown-list-indent-width 4)
+  (markdown-fontify-code-blocks-natively t)
+  (markdown-assymetric-header t))            ; ## heading, not ## Heading ##
+
+;;;; Packages - Writing environment
+
+(use-package olivetti
+  :custom (olivetti-body-width 80)
+  :hook ((markdown-mode org-mode) . olivetti-mode))
 
 ;;;; Did it all work?
 
