@@ -117,6 +117,15 @@
 (use-package magit
   :bind ("C-x g" . magit-status))
 
+;;;; Packages - Appearance
+
+(use-package ef-themes)
+
+;; ef-elea narrowly won out over ef-dream/ef-reverie
+(use-package auto-dark
+  :custom (auto-dark-themes '((ef-elea-dark) (ef-elea-light)))
+  :init (auto-dark-mode 1))
+
 ;;;; Did it all work?
 
 (setq nm/init-loaded t)
