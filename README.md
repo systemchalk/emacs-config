@@ -8,12 +8,14 @@ Requires Emacs 30.2+
 | Path | Purpose |
 |------|---------|
 | `early-init.el` | Garbage Collection threshold, remove toolbar, scroll |
-| `init.el` | Everything else |
+| `init.el` | Main configuration |
 | `lisp/` | Currently unused |
-| `custom.el` | Machine specific untracked customization |
+| `custom.el` | Machine specific untracked customization (currently overridden by `init.el` when in conflict) |
 
 ## Install
 Make sure `~/.emacs.d` doesn't exist.
+
+Doing this will completely delete the emacs configuration. Rename it if you don't want this to happen!
 
 ```bash
 rm -rf ~/.emacs.d

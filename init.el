@@ -8,6 +8,13 @@
 (setopt custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file 'noerror 'nomessage)
 
+;;;; Platform
+;; Predicates for machine-specific configuration.
+
+(defconst nm/linux-p   (eq system-type 'gnu/linux))
+(defconst nm/macos-p   (eq system-type 'darwin))
+(defconst nm/windows-p (eq system-type 'windows-nt))
+
 ;;;; Backups and auto-saves -- Backups and auto-saves live in .config
 
 ;; Make the directories. The t in make-directory makes it safe for startup
