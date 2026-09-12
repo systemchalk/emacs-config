@@ -92,6 +92,24 @@
   :custom (olivetti-body-width 80)
   :hook ((markdown-mode org-mode) . olivetti-mode))
 
+;;;; Packages - Minibuffer
+
+(use-package vertico
+  :init (vertico-mode 1))
+
+(use-package marginalia
+  :init (marginalia-mode 1))
+
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+;;;; Packages - Version control
+
+(use-package magit
+  :bind ("C-x g" . magit-status))
+
 ;;;; Did it all work?
 
 (setq nm/init-loaded t)
