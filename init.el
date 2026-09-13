@@ -141,7 +141,7 @@
 (let ((mono (nm/first-available-font
              '("Menlo" "Monaco" "JetBrains Mono" "Adwaita Mono" "Cascadia Code"
                "IBM Plex Mono" "Source Code Pro" "DejaVu Sans Mono" "Consolas"
-               "Monospace Neon" "Aporetic Sans Mono"
+               "Monaspace Neon" "Aporetic Sans Mono"
                "Iosevka" "monospace")))
       (sans (nm/first-available-font
              '("Helvetica Neue" "Source Sans 3" "Segoe UI" "Adwaita Sans"

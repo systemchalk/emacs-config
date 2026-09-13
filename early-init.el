@@ -16,7 +16,7 @@
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars . nil) default-frame-alist)
 
-;; Must match ef-elea-dark (see init.el
+;; Must match ef-elea-dark (see init.el)
 ;; Get with: M-: (face-background 'default) if changing
 (push '(background-color . "#222524") default-frame-alist)
 (push '(foreground-color . "#eaf2ef") default-frame-alist)
