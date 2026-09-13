@@ -137,6 +137,7 @@
 ;;;; Packages -- Proofing
 
 (use-package jinx
+  :unless nm/windows-p
   :hook (emacs-startup . global-jinx-mode)
   :bind (("M-$"   . jinx-correct)
          ("C-M-$" . jinx-languages)))
@@ -151,6 +152,7 @@
   :init (auto-dark-mode 1))
 
 ;;;; Appearance -- Fonts
+
 (defvar nm/font-height
   (cond (nm/macos-p   120)
         (nm/windows-p 120)
@@ -168,7 +170,7 @@
                "DejaVu Sans Mono" "Consolas" "Monaspace Neon"
                "Aporetic Sans Mono" "Iosevka" "monospace")))
       (sans (nm/first-available-font
-             '("Helvetica Neue" "Source Sans 3" "Segoe UI" "Adwaita Sans"
+             '("Helvetica Neue" "Source Sans 3" "Adwaita Sans"
                "Aporetic Sans" "IBM Plex Sans" "Noto Sans" "DejaVu Sans"
                "sans-serif"))))
 

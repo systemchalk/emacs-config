@@ -26,7 +26,7 @@ If you'd like most of the fonts in the list, preview, and spell check to work (F
 sudo dnf install enchant2-devel pkgconf hunspell-en-CA pandoc adwaita-fonts-all cascadia-fonts-all ibm-plex-fonts-all jetbrains-mono-fonts-all
 ```
 
-**Windows** - To do
+**Windows**
 Install Emacs and set HOME for config
 ```powershell
 winget install GNU.Emacs
