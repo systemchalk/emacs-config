@@ -3,6 +3,9 @@
 (defvar nm/init-loaded nil
   "Non-nil once init.el has run to completion.")
 
+(when (version< emacs-version "30")
+  (error "This configuration requires Emacs 30 or later"))
+
 ;;;; Custom file -- Quarantines changes set within Emacs to untracked file
 
 (setopt custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -112,7 +115,11 @@
 ;;;; Packages -- Minibuffer
 
 (use-package vertico
-  :init (vertico-mode 1))
+  :init (vertico-mode 1)
+  (vertico-multiform-mode 1)
+  :config
+  (add-to-list 'vertico-multiform-categories
+               '(jinx grid (vertico-grid-annotate .  20) (vertico-count . 4))))
 
 (use-package marginalia
   :init (marginalia-mode 1))

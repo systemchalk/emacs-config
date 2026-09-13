@@ -2,7 +2,7 @@
 
 Personal configuration for Emacs starting with Fedora VM, macOS, then
 Windows.
-Requires Emacs 30.2+
+Requires Emacs 30+
 
 ## Layout
 | Path | Purpose |
@@ -33,4 +33,3 @@ sudo dnf install enchant2-devel pkgconf hunspell-en-CA pandoc adwaita-fonts-all 
 ## Future work
 * I would prefer the prose sections (mostly driven by markdown) to use TAB as a proper tab. Currently it has either structural meaning or is overloaded by the mode.
 * Python and Rust environments are deferred
-* Spell check and grammar check
