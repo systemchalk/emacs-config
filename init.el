@@ -83,7 +83,7 @@
 ;; Install anything declared with use-package that isn't present
 (setopt use-package-always-ensure t)
 
-;;;; Packages - Markdown
+;;;; Packages -- Markdown
 
 (use-package markdown-mode
   :mode ("\\.md\\'" . markdown-mode)
@@ -93,13 +93,13 @@
   (markdown-fontify-code-blocks-natively t)
   (markdown-asymmetric-header t))            ; ## heading, not ## Heading ##
 
-;;;; Packages - Writing environment
+;;;; Packages -- Writing environment
 
 (use-package olivetti
   :custom (olivetti-body-width 80)
   :hook ((markdown-mode org-mode) . olivetti-mode))
 
-;;;; Packages - Minibuffer
+;;;; Packages -- Minibuffer
 
 (use-package vertico
   :init (vertico-mode 1))
@@ -112,12 +112,12 @@
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
-;;;; Packages - Version control
+;;;; Packages -- Version control
 
 (use-package magit
   :bind ("C-x g" . magit-status))
 
-;;;; Packages - Appearance
+;;;; Packages -- Appearance
 
 (use-package ef-themes)
 
@@ -125,6 +125,33 @@
 (use-package auto-dark
   :custom (auto-dark-themes '((ef-elea-dark) (ef-elea-light)))
   :init (auto-dark-mode 1))
+
+;;;; Appearance -- Fonts
+(defvar nm/font-height
+  (cond (nm/macos-p   120)
+        (nm/windows-p 120)
+        (t            120))
+  "Default face height in 1/10 pt. Screen densities differ per machine.")
+
+(defun nm/first-available-font (fonts)
+  "Return the first family in FONTS that exists on this system."
+  (seq-find (lambda (f) (member f (font-family-list))) fonts))
+
+;; Change order according to taste
+(let ((mono (nm/first-available-font
+             '("Menlo" "Monaco" "JetBrains Mono" "Adwaita Mono" "Cascadia Code"
+               "IBM Plex Mono" "Source Code Pro" "DejaVu Sans Mono" "Consolas"
+               "Monospace Neon" "Aporetic Sans Mono"
+               "Iosevka" "monospace")))
+      (sans (nm/first-available-font
+             '("Helvetica Neue" "Source Sans 3" "Segoe UI" "Adwaita Sans"
+               "Aporetic Sans" "IBM Plex Sans" "DejaVu Sans" "sans-serif"))))
+
+  (when mono
+    (set-face-attribute 'default nil :family mono :height nm/font-height)
+    (set-face-attribute 'fixed-pitch nil :family mono))
+  (when sans
+    (set-face-attribute 'variable-pitch nil :family sans)))
 
 ;;;; Did it all work?
 
