@@ -59,7 +59,7 @@
 
 (setopt require-final-newline t)
 
-;;;; Writing defaults -- Whitespace has meaning
+;;;; Writing defaults -- White space has meaning
 
 ;; Sentences no longer have to end with two spaces (e.g. and Dr. are sentences)
 (setopt sentence-end-double-space nil)
@@ -102,7 +102,7 @@
   "Hooks for modes treated as prose rather than markup.")
 
 (defun nm/prose-display-setup ()
-  "Reding wdith and proportional font for prose buffers, including markdown."
+  "Reading width and proportional font for prose buffers, including markdown."
   (olivetti-mode 1)
   (variable-pitch-mode 1))
 
@@ -126,6 +126,13 @@
 
 (use-package magit
   :bind ("C-x g" . magit-status))
+
+;;;; Packages -- Proofing
+
+(use-package jinx
+  :hook (emacs-startup . global-jinx-mode)
+  :bind (("M-$"   . jinx-correct)
+         ("C-M-$" . jinx-languages)))
 
 ;;;; Packages -- Appearance
 
