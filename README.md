@@ -43,8 +43,13 @@ Clone the repository
 git clone git@github.com:systemchalk/emacs-config.git $env:HOME\.config\emacs
 ```
 
+To do:
+* Instructions for installing Jinx and fonts
+* Find out why Jinx is crashing Emacs
+
 **macOS** - To do
 
 ## Future work
+* Python and Rust environments are next
+* Pick "canonical" fonts. Serifs for prose?
 * I would prefer the prose sections (mostly driven by markdown) to use TAB as a proper tab. Currently it has either structural meaning or is overloaded by the mode.
-* Python and Rust environments are deferred
