@@ -27,6 +27,21 @@ sudo dnf install enchant2-devel pkgconf hunspell-en-CA pandoc adwaita-fonts-all 
 ```
 
 **Windows** - To do
+Install Emacs and set HOME for config
+```powershell
+winget install GNU.Emacs
+
+[Environment]::SetEnvironmentVariable("HOME", "$env:USERPROFILE", "User")
+```
+The terminal will need to be reopened after setting home. It can be verified with
+```powershell
+$env:HOME
+```
+
+Clone the repository
+```powershell
+git clone git@github.com:systemchalk/emacs-config.git $env:HOME\.config\emacs
+```
 
 **macOS** - To do
 
