@@ -96,8 +96,18 @@
 ;;;; Packages -- Writing environment
 
 (use-package olivetti
-  :custom (olivetti-body-width 80)
-  :hook ((markdown-mode org-mode) . olivetti-mode))
+  :custom (olivetti-body-width 80))
+
+(defvar nm/prose-mode-hooks '(markdown-mode-hook org-mode-hook)
+  "Hooks for modes treated as prose rather than markup.")
+
+(defun nm/prose-display-setup ()
+  "Reding wdith and proportional font for prose buffers, including markdown."
+  (olivetti-mode 1)
+  (variable-pitch-mode 1))
+
+(dolist (hook nm/prose-mode-hooks)
+  (add-hook hook #'nm/prose-display-setup))
 
 ;;;; Packages -- Minibuffer
 
@@ -140,12 +150,13 @@
 ;; Change order according to taste
 (let ((mono (nm/first-available-font
              '("Menlo" "Monaco" "JetBrains Mono" "Adwaita Mono" "Cascadia Code"
-               "IBM Plex Mono" "Source Code Pro" "DejaVu Sans Mono" "Consolas"
-               "Monaspace Neon" "Aporetic Sans Mono"
-               "Iosevka" "monospace")))
+               "IBM Plex Mono" "Source Code Pro" "Noto Sans Mono"
+               "DejaVu Sans Mono" "Consolas" "Monaspace Neon"
+               "Aporetic Sans Mono" "Iosevka" "monospace")))
       (sans (nm/first-available-font
              '("Helvetica Neue" "Source Sans 3" "Segoe UI" "Adwaita Sans"
-               "Aporetic Sans" "IBM Plex Sans" "DejaVu Sans" "sans-serif"))))
+               "Aporetic Sans" "IBM Plex Sans" "Noto Sans" "DejaVu Sans"
+               "sans-serif"))))
 
   (when mono
     (set-face-attribute 'default nil :family mono :height nm/font-height)
