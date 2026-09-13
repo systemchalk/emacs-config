@@ -169,16 +169,16 @@
                "IBM Plex Mono" "Source Code Pro" "Noto Sans Mono"
                "DejaVu Sans Mono" "Consolas" "Monaspace Neon"
                "Aporetic Sans Mono" "Iosevka" "monospace")))
-      (sans (nm/first-available-font
-             '("Helvetica Neue" "Source Sans 3" "Adwaita Sans"
-               "Aporetic Sans" "IBM Plex Sans" "Noto Sans" "DejaVu Sans"
-               "sans-serif"))))
+      (prose (nm/first-available-font
+              '("Libre Baskerville" "Libre Caslon Text" "Helvetica Neue"
+                "Source Sans 3" "Adwaita Sans" "Aporetic Sans" "IBM Plex Sans"
+                "Noto Sans" "DejaVu Sans" "sans-serif"))))
 
   (when mono
     (set-face-attribute 'default nil :family mono :height nm/font-height)
     (set-face-attribute 'fixed-pitch nil :family mono))
-  (when sans
-    (set-face-attribute 'variable-pitch nil :family sans)))
+  (when prose
+    (set-face-attribute 'variable-pitch nil :family prose)))
 
 ;;;; Did it all work?
 
