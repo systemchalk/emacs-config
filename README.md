@@ -1,7 +1,6 @@
 # Emacs config
 
-Personal configuration for Emacs starting with Fedora VM, macOS, then
-Windows.
+Personal configuration for Emacs starting with Fedora VM, macOS, then Windows.
 Requires Emacs 30+
 
 ## Layout
@@ -13,11 +12,21 @@ Requires Emacs 30+
 | `custom.el` | Machine specific untracked customization (currently overridden by `init.el` when in conflict) |
 
 ## Install
-Make sure `~/.emacs.d` doesn't exist.
+Make sure `~/.emacs.d` doesn't exit.
 
-Doing this will completely delete the Emacs configuration. Rename it if you don't want this to happen!
+This will completely delete the Emacs configuration (on macOS or Linux). Rename it if you don't want this to happen!
 ```bash
 rm -rf ~/.emacs.d
+```
+
+### Linux
+Default repository is fine for Emacs
+```bash
+sudo dnf install emacs
+```
+
+Bring in the config from GitHub
+```bash
 git clone git@github.com:systemchalk/emacs-config.git ~/.config/emacs
 ```
 
@@ -26,13 +35,14 @@ If you'd like most of the fonts in the list, preview, and spell check to work (F
 sudo dnf install enchant2-devel pkgconf hunspell-en-CA pandoc adwaita-fonts-all cascadia-fonts-all ibm-plex-fonts-all jetbrains-mono-fonts-all
 ```
 
-**Windows**
+### Windows
 Install Emacs and set HOME for config
 ```powershell
 winget install GNU.Emacs
 
 [Environment]::SetEnvironmentVariable("HOME", "$env:USERPROFILE", "User")
 ```
+
 The terminal will need to be reopened after setting home. It can be verified with
 ```powershell
 $env:HOME
@@ -44,12 +54,27 @@ git clone git@github.com:systemchalk/emacs-config.git $env:HOME\.config\emacs
 ```
 
 To do:
-* Instructions for installing Jinx and fonts
+* Instructions for installing Jinx
 * Find out why Jinx is crashing Emacs
 
-**macOS** - To do
+### macOS
+Use brew to install Jinx dependencies
+```zsh
+brew install enchant
+brew install pkgconf
+```
+
+The default Emacs from brew doesn't give the GUI to work with
+```zsh
+brew tap d12frosted/emacs-plus
+brew install emacs-plus@31
+```
+
+Get the configuration
+```zsh
+git clone git@github.com:systemchalk/emacs-config.git ~/.config/emacs
+```
 
 ## Future work
 * Python and Rust environments are next
-* Pick "canonical" fonts. Serifs for prose?
 * I would prefer the prose sections (mostly driven by markdown) to use TAB as a proper tab. Currently it has either structural meaning or is overloaded by the mode.
