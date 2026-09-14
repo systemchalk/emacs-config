@@ -154,7 +154,7 @@
 ;;;; Appearance -- Fonts
 
 (defvar nm/font-height
-  (cond (nm/macos-p   120)
+  (cond (nm/macos-p   140)
         (nm/windows-p 120)
         (t            120))
   "Default face height in 1/10 pt. Screen densities differ per machine.")
@@ -170,9 +170,10 @@
                "DejaVu Sans Mono" "Consolas" "Monaspace Neon"
                "Aporetic Sans Mono" "Iosevka" "monospace")))
       (prose (nm/first-available-font
-              '("Libre Baskerville" "Libre Caslon Text" "Helvetica Neue"
-                "Source Sans 3" "Adwaita Sans" "Aporetic Sans" "IBM Plex Sans"
-                "Noto Sans" "DejaVu Sans" "sans-serif"))))
+              '("Courier New" "Courier Prime" "Baskerville" "Libre Baskerville"
+                "Libre Caslon Text" "Helvetica Neue" "Source Sans 3"
+                "Adwaita Sans" "Aporetic Sans" "IBM Plex Sans" "Noto Sans"
+                "DejaVu Sans" "sans-serif"))))
 
   (when mono
     (set-face-attribute 'default nil :family mono :height nm/font-height)
